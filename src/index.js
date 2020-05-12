@@ -25,6 +25,17 @@ const getProfile = async (token, id) => {
         .catch((error) => console.error(error));
 };
 
+const getShortid = async (token, replayId) => {
+    return await axios
+        .get(`https://tetr.io/api/games/${replayId}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+        .then((response) => response.data.game.shortid)
+        .catch((error) => console.error(error));
+};
+
 app.get("/", (req, res) => res.send("Hello World!"));
 
 app.get("/profile", async (req, res) => {
@@ -45,7 +56,20 @@ app.get("/profile", async (req, res) => {
         console.log(profiles);
     }
 
+    res.header("Access-Control-Allow-Origin", "*");
     res.send(profiles);
+});
+
+app.get("/shortId", async (req, res) => {
+    if (!req.query.id) {
+        res.status(422).send("id is required.");
+    }
+
+    const token = await getToken(process.env.username, process.env.password);
+    const shortId = await getShortid(token, req.query.id);
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.send(shortId);
 });
 
 app.listen(3000, () => console.log("Example app listening on port 3000!"));
