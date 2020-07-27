@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "headers": [
+        {
+            "source": "/api/id",
+            "headers": [
+                {
+                    "key": "cache-control",
+                    "value": "s-maxage=31536000"
+                }
+            ]
+        },
+        {
+            "source": "/api/(.*)",
+            "headers": [
+                {
+                    "key": "cache-control",
+                    "value": "s-maxage=60"
+                },
+                {
+                    "key": "access-control-allow-origin",
+                    "value": "*"
+                }
+            ]
+        }
+    ]
+}

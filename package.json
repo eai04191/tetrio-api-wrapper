@@ -1,15 +1,17 @@
 {
-  "name": "tetrio-profile-wrapper",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/eai04191/tetrio-profile-wrapper",
-  "author": "Irie Aoi <eai@mizle.net>",
-  "license": "MIT",
-  "dependencies": {
-    "axios": "^0.19.2",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-promise-router": "^3.0.3",
-    "now": "^19.0.0"
-  }
+    "name": "tetrio-profile-wrapper",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "https://github.com/eai04191/tetrio-profile-wrapper",
+    "author": "Irie Aoi <eai@mizle.net>",
+    "license": "MIT",
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "got": "^11.5.1",
+        "mongodb": "^3.5.9",
+        "vercel": "^19.2.0"
+    },
+    "devDependencies": {
+        "@types/mongodb": "^3.5.25"
+    }
 }
