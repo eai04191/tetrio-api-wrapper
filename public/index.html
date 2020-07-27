@@ -1,1 +1,103 @@
-Hello
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+        />
+        <base target="_blank" />
+    </head>
+    <body>
+        <header>
+            <h1>tetrio-api-wrapper</h1>
+            <p>
+                There is almost nothing here. It's an API for using from
+                <a href="https://bellis.mizle.net">Bellis</a>.
+            </p>
+        </header>
+
+        <h2>Get your id from username</h2>
+        <br />
+        <label for="username">username:</label>
+        <input
+            type="text"
+            id="username"
+            placeholder="osk"
+            style="font-size: 16px;"
+        />
+        <button id="get">get</button>
+        <p id="error" style="color: red;"></p>
+        <output></output>
+
+        <footer>
+            <br />
+            <hr />
+            <br />
+            <p>
+                Source code:
+                <a href="https://github.com/eai04191/tetrio-api-wrapper">
+                    github.com/eai04191/tetrio-api-wrapper
+                </a>
+            </p>
+        </footer>
+
+        <script>
+            const setError = (error) => {
+                if (error) {
+                    document.getElementById("error").innerText = error;
+                } else {
+                    document.getElementById("error").innerText = "";
+                }
+            };
+            const setOutput = (string) => {
+                const output = document.querySelector("output");
+                if (string) {
+                    output.innerText = string;
+                } else {
+                    output.innerText = "";
+                }
+            };
+            const setOutputId = (id) => {
+                const output = document.querySelector("output");
+                output.innerHTML = `id: <code>${id}</code>`;
+            };
+
+            const submit = () => {
+                setError();
+
+                const username = document
+                    .getElementById("username")
+                    .value.toLowerCase();
+
+                if (username === "") {
+                    setError("username is went wrong.");
+                    return;
+                }
+
+                setOutput("Fetching...");
+
+                fetch(`/api/id?username=${username}`)
+                    .then((response) => response.json())
+                    .then((json) => {
+                        setOutputId(json.id);
+                    })
+                    .catch((error) => {
+                        setError(
+                            `Sorry, something went wrong on our side. (${error.message})`
+                        );
+                        setOutput();
+                    });
+            };
+
+            document.getElementById("get").addEventListener("click", submit);
+            document
+                .getElementById("username")
+                .addEventListener("keypress", (e) => {
+                    if (e.key === "Enter") submit();
+                });
+        </script>
+    </body>
+</html>
