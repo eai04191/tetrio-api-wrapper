@@ -5,7 +5,7 @@ import { getToken } from "./util/db";
 export default async function (req: NowRequest, res: NowResponse) {
     const { id } = req.query;
     if (!id) {
-        res.status(401).json({
+        res.status(400).json({
             error: { msg: "Missing query parameters: id" },
         });
         return;

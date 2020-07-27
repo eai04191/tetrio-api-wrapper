@@ -5,7 +5,7 @@ import { getToken } from "./util/db";
 export default async function (req: NowRequest, res: NowResponse) {
     const { replayId } = req.query;
     if (!replayId) {
-        res.status(401).json({
+        res.status(400).json({
             error: { msg: "Missing query parameters: replayId" },
         });
         return;
