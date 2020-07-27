@@ -1,1 +1,1 @@
-# tetrio-profile-wrapper
+# tetrio-api-wrapper
