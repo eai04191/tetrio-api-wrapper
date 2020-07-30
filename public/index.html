@@ -82,7 +82,11 @@
                 fetch(`/api/id?username=${username}`)
                     .then((response) => response.json())
                     .then((json) => {
-                        setOutputId(json.id);
+                        if (json.id) {
+                            setOutputId(json.id);
+                        }else{
+                            throw new Error("Failed to fetch data from tetr.io.")
+                        }
                     })
                     .catch((error) => {
                         setError(
