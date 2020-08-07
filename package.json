@@ -7,7 +7,7 @@
     "license": "MIT",
     "dependencies": {
         "dotenv": "^8.2.0",
-        "got": "^11.5.1",
+        "got": "^11.5.2",
         "mongodb": "^3.6.0",
         "vercel": "^19.2.0"
     },
