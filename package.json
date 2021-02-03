@@ -8,7 +8,7 @@
     "dependencies": {
         "dotenv": "^8.2.0",
         "got": "^11.8.1",
-        "mongodb": "^3.6.3",
+        "mongodb": "^3.6.4",
         "vercel": "^21.2.1"
     },
     "devDependencies": {
