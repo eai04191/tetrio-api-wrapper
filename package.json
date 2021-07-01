@@ -12,6 +12,6 @@
         "vercel": "^21.3.2"
     },
     "devDependencies": {
-        "@types/mongodb": "^3.6.8"
+        "@types/mongodb": "^3.6.19"
     }
 }
