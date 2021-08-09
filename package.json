@@ -9,7 +9,7 @@
         "dotenv": "^8.2.0",
         "got": "^11.8.1",
         "mongodb": "^3.6.4",
-        "vercel": "^21.3.2"
+        "vercel": "^23.1.2"
     },
     "devDependencies": {
         "@types/mongodb": "^3.6.8"
