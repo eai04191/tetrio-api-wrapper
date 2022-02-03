@@ -6,7 +6,7 @@
     "author": "Irie Aoi <eai@mizle.net>",
     "license": "MIT",
     "dependencies": {
-        "dotenv": "^8.2.0",
+        "dotenv": "^16.0.0",
         "got": "^11.8.1",
         "mongodb": "^3.6.4",
         "vercel": "^21.3.2"
